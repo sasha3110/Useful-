@@ -1,0 +1,11 @@
+from datetime import datetime
+
+def compare_dates(date):
+    date_format = '%Y/%m/%d'
+    current_date = datetime.strptime(date, date_format)  
+    today = datetime.today()
+    diff = current_date - today
+    return diff.days
+
+#apply this function to your pandas dataframe
+df['days_since'] = df['date'].apply(compare_dates)
